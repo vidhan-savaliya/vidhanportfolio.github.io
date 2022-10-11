@@ -121,3 +121,14 @@ button.art{
     background-size: cover;
     align-items: center;
 }
+@media only screen and (max-width:860px)and (min-width:360px){
+    body{
+        background-color: black;
+    }
+    div.ss{
+        background-color: black;
+    }
+    nav ul{
+        margin-left: 40%;
+    }
+}
