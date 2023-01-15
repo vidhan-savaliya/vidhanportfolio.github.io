@@ -1,0 +1,248 @@
+<html>
+
+    <head>
+        <script type="text/javascript" src="/iONjsLib/js/jquery-3.4.0.min.js"></script>
+        <script type="text/javascript" src="/UIConfigurator/includes/js/UiIframeContent.js"></script>
+        <script>function submitform() { jQuery(".formvalidation").remove(); if (document.login.accountname.value == "") { jQuery("#login").append("<span class='formvalidation' style='color: red;'>Please Enter UserId</span>"); } else if (document.login.password.value == "") { jQuery("#login").append("<span class='formvalidation' style='color: red;'>Please Enter Password</span>"); } else { document.login.submit(); } } function forgotPassword() { var url = window.location.href.split("/"); var loginType = -1; window.location = url[0] + "/dotcom/PasswordPolicy/forget_pwd.jsp?accountname=Username&password=Password&orgFolder=TCSSMB&loginType=" + loginType; }</script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/icai_style.css">
+        <link rel="stylesheet" href="/captchaservice/css/captchaservice.css">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&amp;display=swap"
+            rel="stylesheet">
+        <!-- roboto fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&amp;display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+        <script async="" src="https://ds-aksb-a.akamaihd.net/aksb.min.js"></script>
+        <script>var w = window; if (w.performance || w.mozPerformance || w.msPerformance || w.webkitPerformance) { var d = document; AKSB = w.AKSB || {}, AKSB.q = AKSB.q || [], AKSB.mark = AKSB.mark || function (e, _) { AKSB.q.push(["mark", e, _ || (new Date).getTime()]) }, AKSB.measure = AKSB.measure || function (e, _, t) { AKSB.q.push(["measure", e, _, t || (new Date).getTime()]) }, AKSB.done = AKSB.done || function (e) { AKSB.q.push(["done", e]) }, AKSB.mark("firstbyte", (new Date).getTime()), AKSB.prof = { custid: "907488", ustr: "", originlat: "0", clientrtt: "45", ghostip: "96.17.168.23", ipv6: false, pct: "10", clientip: "136.226.251.11", requestid: "e924ce9", region: "34358", protocol: "", blver: 14, akM: "a", akN: "ae", akTT: "O", akTX: "1", akTI: "e924ce9", ai: "285754", ra: "false", pmgn: "", pmgi: "", pmp: "", qc: "" }, function (e) { var _ = d.createElement("script"); _.async = "async", _.src = e; var t = d.getElementsByTagName("script"), t = t[t.length - 1]; t.parentNode.insertBefore(_, t) }(("https:" === d.location.protocol ? "https:" : "http:") + "//ds-aksb-a.akamaihd.net/aksb.min.js") }</script>
+        <link rel="stylesheet" type="text/css" href="/UIConfigurator/includes/css/FaceUnlock.css">
+    </head>
+
+    <body>
+        <div id="UIrightContainerNavDiv1" class="UIoriginal_panel">
+            <div class="icai_eform_body_container ">
+                <div class="icai_eform_body_wrapper">
+                    <div class="icai_login_container">
+                        <div class="icai_login_wrapper">
+                            <div class="icai_login_logo_left_wrapper"><br>
+                                <img alt="" class="icai_login_logo_img" src="images/icai_logo.png">
+                                <h3 class="icai_login_logo_title">The Institute of Chartered Accountants of India</h3>
+                                <span class="icai_login_logo_subtitle">(Setup by An Act of Parliament)</span>
+                            </div>
+
+                            <div class="icai_login_right_wrapper">
+                                <div class="icai_login_right_login_container" id="login_section">
+
+                                    <div class="icai_login_right_login_wrap">
+                                        <div class="icai_login_left_login_container"
+                                            style="text-align: left;color: blue;font-size: 12;font-weight:bold">
+                                            <span style="color: red;font-size:12; text-decoration: underline;">Students
+                                                Please Note:</span><br>
+                                            Admit cards NOT available in SSP.
+                                            Download your Result from the below links:<br>
+                                            <a href="https://cdn3.tcsion.com//EForms/configuredHtml/1666/71696/login.html"
+                                                target="_blank"
+                                                style="color: #d0448e;font-size:12;text-decoration: underline;">Click
+                                                here for Foundation Admit Card</a>
+                                        </div>
+                                        <h3 class="icai_login_right_login_wrap_heading">Check Result</h3>
+
+                                        <div class="icai_login_right_login_inputfield_wrapper">
+                                            <form action="/SMBPortal/Login" autocomplete="off"
+                                                class="icai_login_form_main" id="login" method="post" name="login">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <div class="icai_login_right_login_inputfield_item"><input
+                                                                autocomplete="off" class="form-control" id="accountname"
+                                                                name="accountname"
+                                                                onblur="checkIfUserIsApplicant(this.id);"
+                                                                placeholder="Enter your WRO Number"
+                                                                type="text"> <label class="icai_login_input_lbl"
+                                                                for="icai_user_id">WRO Number</label> <span 
+                                                                class="focus-border"> <i></i> </span></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <div class="icai_login_right_login_inputfield_item"><input
+                                                                autocomplete="new-password" class="form-control"
+                                                                id="password" name="password"
+                                                                onkeydown="if(event.keyCode == 13){submitform()}"
+                                                                placeholder="Enter Your ROll number" type="Password">
+                                                            <label class="icai_login_input_lbl"
+                                                                for="icai_user_pwd">Roll Number</label> <span
+                                                                class="focus-border"> <i></i> </span></div>
+                                                        <a class="icai_login_right_forgot_pwd_btn" id="forgotPassword"
+                                                            onclick="javascript:forgotPassword();"></a>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" class="hiddenfields" name="unifiedloginpage"
+                                                    id="unifiedloginpage" value="1"><input type="hidden"
+                                                    class="hiddenfields" name="loginType" id="loginType"
+                                                    value="5"><input type="hidden" class="hiddenfields" name="device"
+                                                    id="device" value="login">
+                                            </form>
+
+                                            <div class="clearfix">&nbsp;</div>
+                                            &nbsp;
+
+                                            <div class="icai_login_right_login_button_item"><a
+                                                    class="icai_login_right_login_btn"
+                                                    href="">Check Result</a></div>
+                                        </div>
+
+                                        <div class="icai_login_txt_container">
+                                            <!-- <a href="/EForms/configuredHtml/1666/57499/login.html" class="icai_login_txt_content"></a> --><br>
+                                            <a class="icai_login_txt_content"
+                                                href="/EForms/configuredHtml/1666/57499/Registration.html?action=newuser"></a> <a
+                                                class="icai_login_txt_content"
+                                                href="/EForms/configuredHtml/1666/57499/Registration.html?action=existing"></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="icai_login_right_login_container" id="forgot_password_section"
+                                    style="display: none;">
+                                    <div class="icai_login_right_login_wrap">
+                                        <div class="col-md-6">
+                                            <h3 class="icai_login_right_login_wrap_heading">Forgot Password</h3>
+                                        </div>
+
+                                        <div class="col-md-5">&nbsp;</div>
+                                        <!-- <div class="col-md-1" href="#" onclick="gotoLoginPage();" style="cursor: pointer;"><h3 class="icai_login_right_login_wrap_heading" title="Back to Login"><i class="fa fa-home"></i></h3></div> -->
+
+                                        <div class="icai_login_right_login_inputfield_wrapper">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <div class="icai_login_right_login_inputfield_item"><input
+                                                            autocomplete="off" class="form-control" id="accountname_fp"
+                                                            name="accountname_fp"
+                                                            placeholder="<MRN / SRN>@icai.org or App Seq No"
+                                                            readonly="readonly" type="text"> <label
+                                                            class="icai_login_input_lbl" for="icai_user_id">User
+                                                            ID</label> <span class="focus-border"> <i></i> </span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="capcha" style="margin-top: 18px;">
+                                            <div style="height:inherit;width:100%" align="center">
+                                                <div id="captchaHolder" style="padding-left:0px;">&nbsp;</div>
+                                            </div>
+                                        </div>
+                                        &nbsp;
+
+                                        <div class="row"><a class="icai_login_right_login_btn"
+                                                onclick="validateIonCaptchaForgot1('forgotPassword');"
+                                                style="float:left;width: 35%; margin-left:75px;">Get Password</a> <a
+                                                class="icai_login_right_login_btn" onclick="gotoLoginPage();"
+                                                style="float:right;width: 35%; margin-right:61px;">Cancel</a></div>
+                                    </div>
+                                </div>
+
+                                <div class="icai_login_right_login_container" id="change_password_section"
+                                    style="display: none;">&nbsp;</div>
+
+                                <div style="display: none;">
+                                    <form action="/EForms/loginAction.do" enctype="multipart/form-data" method="post"
+                                        name="loginForm"><input id="userid" maxlength="20" name="userid"
+                                            placeholder="Enter AppSeqNumber" type="text"> <input id="confData"
+                                            maxlength="20" name="confData" placeholder="Enter Password" type="password">
+                                        <input name="orgId" type="hidden" value="1666"> <input name="formId"
+                                            type="hidden" value="57499"></form>
+                                </div>
+
+                                <div class="icai_login_bottom_container">
+                                    <div class="icai_login_bottom_wrapper">
+                                        <div class="icai_login_bottom_wrapper_left">
+                                            <ul class="icai_login_bottom_wrapper_social_listing">
+                                                <li><a class="icai_login_bottom_wrapper_social_listing_link"
+                                                        href="https://www.facebook.com/theicai" target="_blank"><i
+                                                            class="fa fa-facebook icai_login_bottom_wrapper_social_listing_icon"
+                                                            aria-hidden="true"></i> </a></li>
+                                                <li><a class="icai_login_bottom_wrapper_social_listing_link"
+                                                        href="https://www.instagram.com/icaiorg/" target="_blank"><i
+                                                            class="fa fa-instagram icai_login_bottom_wrapper_social_listing_icon"
+                                                            aria-hidden="true"></i> </a></li>
+                                                <li><a class="icai_login_bottom_wrapper_social_listing_link"
+                                                        href="https://twitter.com/theicai" target="_blank"><i
+                                                            class="fa fa-twitter icai_login_bottom_wrapper_social_listing_icon"
+                                                            aria-hidden="true"></i> </a></li>
+                                                <li><a class="icai_login_bottom_wrapper_social_listing_link"
+                                                        href="https://www.youtube.com/icaiorgtube" target="_blank"><i
+                                                            class="fa fa-youtube icai_login_bottom_wrapper_social_listing_icon"
+                                                            aria-hidden="true"></i> </a></li>
+                                                <li><a class="icai_login_bottom_wrapper_social_listing_link"
+                                                        href="https://www.linkedin.com/edu/22460" target="_blank"><i
+                                                            class="fa fa-linkedin icai_login_bottom_wrapper_social_listing_icon"
+                                                            aria-hidden="true"></i> </a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="icai_login_bottom_wrapper_right">
+                                            <ul class="icai_login_bottom_wrapper_video_listing">
+                                                <li data-placement="top" data-toggle="tooltip"
+                                                    title="How to Create One Time Login(Member)"><a
+                                                        class="icai_login_bottom_wrapper_right_icon_link"
+                                                        href="https://www.youtube.com/watch?v=OxdvS1cIPQU"
+                                                        target="_blank"><i
+                                                            class="fa fa-play-circle icai_login_bottom_wrapper_right_icon"
+                                                            aria-hidden="true"></i> <span
+                                                            class="icai_login_bottom_wrapper_right_icon_txt">Watch
+                                                            Video</span> </a></li>
+                                                <li data-placement="top" data-toggle="tooltip"
+                                                    title="Videos &amp; User Manuals"><a
+                                                        class="icai_login_bottom_wrapper_right_icon_link"
+                                                        href="https://www.icai.org/new_post.html?post_id=15755"
+                                                        target="_blank"><i
+                                                            class="fa fa-question-circle icai_login_bottom_wrapper_right_icon"
+                                                            aria-hidden="true"></i> <span
+                                                            class="icai_login_bottom_wrapper_right_icon_txt">How to
+                                                            Apply</span> </a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade icai_eform_modal in" id="myModalAlert" role="dialog" style="display: none;">
+                <div class="modal-dialog icai_eform_modal_dialog"><!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header border-0 icai_eform_modal_header"><button
+                                class="close icai_eform_modal_close" data-dismiss="modal" type="button">×</button>
+
+                            <h4 class="modal-title icai_eform_modal_title" id="myModalAlertTitle">Alert</h4>
+                        </div>
+
+                        <div class="modal-body icai_eform_modal_body">
+                            <div id="modalAlertBody">&nbsp;</div>
+                            &nbsp;
+
+                            <div style="text-align: center;"><a aria-label="Close"
+                                    class="btn icai_eform_application_tab_content_btn_save" data-dismiss="modal"
+                                    data-placement="bottom" data-toggle="tooltip" href=""> Close </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- js starts -->
+            <script src="./js/jquery.min.js"></script>
+            <script src="./js/bootstrap.min.js"></script>
+            <script src="./js/popper.js"></script>
+            <script src="./js/login.js"></script>
+            <script src="/captchaservice/js/captchaService.js"></script>
+            <script src="index.js"></script>
+
+        </div>
+    </body>
+
+</html>
